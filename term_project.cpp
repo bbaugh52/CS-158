@@ -19,8 +19,8 @@ int main()
     int studentID[20]
     string studentFirstName[20]
     string studentLastName[20]
-    int midtermGrade[20]
-    int finalGrade[20] 
+    float midtermGrade[20]
+    float finalGrade[20] 
     
   
      //input
@@ -38,10 +38,22 @@ int main()
          
           cin >> opt;
         }
-    while (opt != 6);
+   
   
     void newStudentRecord()
     {
+        cout << "Please enter the following information to add a new student record: \n";
+        cout << "Enter the student id: \n";
+        cin >> int i;                                                                                   // Need to figure this one out
+        studentID[]
+        cout << "Enter first name: \n";
+        cin >> studentFirstName[i];
+        cout << "Enter last name: \n";
+        cin >> studentLastName[i];
+        cout << "Enter the midterm grade: \n";
+        cin >> midtermGrade[i];
+        cout << "Enter the final grade: \n";
+        cin >> finalGrade[i];
         
     }
     void deleteStudentRecord()
@@ -65,7 +77,6 @@ int main()
     }
   
 
+ while (opt != 6);
 
-
-
-
+}
