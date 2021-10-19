@@ -10,7 +10,18 @@ void editStudentRecord();
 
 int main()
     {
+    // menu selection variable
     int opt;
+    
+    // option
+    
+    // arrays
+    int studentID[20]
+    string studentFirstName[20]
+    string studentLastName[20]
+    int midtermGrade[20]
+    int finalGrade[20] 
+    
   
      //input
      do 
@@ -35,14 +46,17 @@ int main()
     }
     void deleteStudentRecord()
     {
-        
+       int a
+        cout >> "Please input a student ID to delete" >> endl;
+        cin << a
+        a = 
     }
     void displayStudentRecords()
     {
         
     }
     void showRecordByID()
-    {
+    {    
     
     }
     void editStudentRecord()
