@@ -44,92 +44,103 @@ int main()
 
 		cin >> opt;
 
-		if (opt = 1)
+		if (opt == 1)
 		{
 			newStudentRecord();
 		}
-		else if (opt = 2)
+		else if (opt == 2)
 		{
 			deleteStudentRecord();
 		}
-		else if (opt = 3)
+		else if (opt == 3)
 		{
 			displayStudentRecords();
 		}
-		else if (opt = 4)
+		else if (opt == 4)
 		{
 			showRecordByID();
 		}
-		else if (opt = 5)
+		else if (opt == 5)
 		{
 			editStudentRecord();
 		}
-		else if (opt = 6)
+		else if (opt == 6)
 		{
-			cout <<"Exiting program \n";
+			cout << "Exiting program \n";
 		}
 		else
 		{
-			cout << "You have entered an invalid option, please close the program and try again." << endl;
+			cout << "You have entered an invalid option" << endl;
 		}
-			
-	} 
-	while (opt != 6);
+
+	} while (opt != 6);
 }
 
 void newStudentRecord()
 {
-	int rDataSlot;
+	int rNumber;
 	cout << "Please enter the following information to add a new student record: \n";
-	cin >> rDataSlot;
 	cout << "Enter the student ID: \n";
-	cin >> studentID[rDataSlot - 1];
+	cin >> rNumber;
+	studentID[rNumber - 1] = rNumber;
 	cout << "Enter first name: \n";
-	cin >> studentFirstName[rDataSlot - 1];
+	cin >> studentFirstName[rNumber - 1];
 	cout << "Enter last name: \n";
-	cin >> studentLastName[rDataSlot - 1];
+	cin >> studentLastName[rNumber - 1];
 	cout << "Enter the midterm grade: \n";
-	cin >> midtermGrade[rDataSlot - 1];
+	cin >> midtermGrade[rNumber - 1];
 	cout << "Enter the final grade: \n";
-	cin >> finalGrade[rDataSlot - 1];
+	cin >> finalGrade[rNumber - 1];
 }
 
 void deleteStudentRecord()
 {
-	int recordNumber;
-		cout << "Please enter a record number to delete." << endl;
-		cin >> recordNumber;
+	int rNumber;
+	cout << "Please enter a record number to delete." << endl;
+	cin >> rNumber;
 
-		studentID[recordNumber - 1] = "";
-		studentFirstName[recordNumber - 1] = "";
-		studentLastName[recordNumber - 1] = "";
-		midtermGrade[recordNumber - 1] = 0;
-		finalGrade[recordNumber - 1] = 0;
+	studentID[rNumber - 1] = 0;
+	studentFirstName[rNumber - 1] = "";
+	studentLastName[rNumber - 1] = "";
+	midtermGrade[rNumber - 1] = 0;
+	finalGrade[rNumber - 1] = 0;
 
 }
 void displayStudentRecords()
 {
-cout << "=========================================================================================================\n";
-cout << "ID \t \t" << "First Name \t" << "Last Name \t" << "Midterm Grade \t" << "Final Grade \n";
-	for(int i = 0; i < SIZE; i++)
-		cout << studentID[i] << "\t \t" << studentFirstName[i] << "\t" << studentLastName[i] << "\t" << midtermGrade[i] << "\t" << finalGrade[i] << endl;
-cout << "=========================================================================================================\n";
-	
+	cout << "=========================================================================================================\n";
+	cout << "ID \t \t" << "First Name \t" << "Last Name \t" << "Midterm Grade \t" << "Final Grade \n";
+	for (int i = 0; i < SIZE; i++)
+		cout << studentID[i] << "\t \t" << studentFirstName[i] << "\t \t" << studentLastName[i] << "\t\t\t" << midtermGrade[i] << "\t\t" << finalGrade[i] << endl;
+	cout << "=========================================================================================================\n";
+
 }
 void showRecordByID()
 {
-
+	int rNumber;
+	cout << "=========================================================================================================\n";
+	cout << "Please enter a student ID: \n";
+	cin >> rNumber;
+	cout << "ID \t \t" << "First Name \t" << "Last Name \t" << "Midterm Grade \t" << "Final Grade \n";
+	cout << studentID[rNumber - 1] << "\t \t" << studentFirstName[rNumber - 1] << "\t\t" << studentLastName[rNumber - 1] << "\t\t\t" << midtermGrade[rNumber - 1] << "\t\t" << finalGrade[rNumber - 1] << endl;
+	cout << "=========================================================================================================\n";
 }
 void editStudentRecord()
 {
+	int rNumber;
+	cout << "Please enter the ID of the student you want to edit: ";
+	cin >> rNumber;
+	cout << "Enter first name: \n";
+	cin >> studentFirstName[rNumber - 1];
+	cout << "Enter last name: \n";
+	cin >> studentLastName[rNumber - 1];
+	cout << "Enter the midterm grade: \n";
+	cin >> midtermGrade[rNumber - 1];
+	cout << "Enter the final grade: \n";
+	cin >> finalGrade[rNumber - 1];
+	cout << "Student information modified successfully";
 
 }
-
-void newStudentRecord()
-{
-}
-
-
 
 
 
