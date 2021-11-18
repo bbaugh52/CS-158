@@ -81,8 +81,6 @@ void newStudentRecord()
 {
 	int rDataSlot;
 	cout << "Please enter the following information to add a new student record: \n";
-	cout << "This program has a storage limit of 20 entrys, please enter which entry slot you would like this to be stored in.\n";
-	cout << "Enter the slot you would like to occupy (between 1 - 20)\n";
 	cin >> rDataSlot;
 	cout << "Enter the student ID: \n";
 	cin >> studentID[rDataSlot - 1];
@@ -102,7 +100,7 @@ void deleteStudentRecord()
 		cout << "Please enter a record number to delete." << endl;
 		cin >> recordNumber;
 
-		studentID[recordNumber - 1] = 0;
+		studentID[recordNumber - 1] = "";
 		studentFirstName[recordNumber - 1] = "";
 		studentLastName[recordNumber - 1] = "";
 		midtermGrade[recordNumber - 1] = 0;
@@ -111,9 +109,12 @@ void deleteStudentRecord()
 }
 void displayStudentRecords()
 {
+cout << "=========================================================================================================\n";
+cout << "ID \t \t" << "First Name \t" << "Last Name \t" << "Midterm Grade \t" << "Final Grade \n";
 	for(int i = 0; i < SIZE; i++)
-		cout << 
-
+		cout << studentID[i] << "\t \t" << studentFirstName[i] << "\t" << studentLastName[i] << "\t" << midtermGrade[i] << "\t" << finalGrade[i] << endl;
+cout << "=========================================================================================================\n";
+	
 }
 void showRecordByID()
 {
