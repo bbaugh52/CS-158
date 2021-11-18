@@ -13,14 +13,16 @@ void deleteStudentRecord();
 void displayStudentRecords();
 void showRecordByID();
 void editStudentRecord();
+
 // global variables
+const int SIZE = 20;
 
 // global arrays
-int studentID[20];
-string studentFirstName[20];
-string studentLastName[20];
-float midtermGrade[20];
-float finalGrade[20];
+int studentID[SIZE];
+string studentFirstName[SIZE];
+string studentLastName[SIZE];
+float midtermGrade[SIZE];
+float finalGrade[SIZE];
 
 int main()
 {
@@ -62,6 +64,10 @@ int main()
 		{
 			editStudentRecord();
 		}
+		else if (opt = 6)
+		{
+			cout <<"Exiting program \n";
+		}
 		else
 		{
 			cout << "You have entered an invalid option, please close the program and try again." << endl;
@@ -73,22 +79,21 @@ int main()
 
 void newStudentRecord()
 {
-	int studentID;
-	int requestedDataSlot;
+	int rDataSlot;
 	cout << "Please enter the following information to add a new student record: \n";
-	cout << "This program has a storage limit of 20 entrys, please enter which entry slot you would like this to be stored in." << endl;
-	cout << "Enter the slot you would like to occupy (between 1 - 20)" << endl;
-	cin >> requestedDataSlot;
-	cout << "Enter the student ID:" << endl;
-	cin >> studentID[requestedDataSlot]; // need to figure this out
+	cout << "This program has a storage limit of 20 entrys, please enter which entry slot you would like this to be stored in.\n";
+	cout << "Enter the slot you would like to occupy (between 1 - 20)\n";
+	cin >> rDataSlot;
+	cout << "Enter the student ID: \n";
+	cin >> studentID[rDataSlot - 1];
 	cout << "Enter first name: \n";
-	cin >> studentFirstName[i];
+	cin >> studentFirstName[rDataSlot - 1];
 	cout << "Enter last name: \n";
-	cin >> studentLastName[i];
+	cin >> studentLastName[rDataSlot - 1];
 	cout << "Enter the midterm grade: \n";
-	cin >> midtermGrade[i];
+	cin >> midtermGrade[rDataSlot - 1];
 	cout << "Enter the final grade: \n";
-	cin >> finalGrade[i];
+	cin >> finalGrade[rDataSlot - 1];
 }
 
 void deleteStudentRecord()
@@ -97,15 +102,17 @@ void deleteStudentRecord()
 		cout << "Please enter a record number to delete." << endl;
 		cin >> recordNumber;
 
-		studentID[recordNumber] = 0;
-		studentFirstName[recordNumber] = "";
-		studentLastName[recordNumber] = "";
-		midtermGrade[recordNumber] = 0;
-		finalGrade[recordNumber] = 0;
+		studentID[recordNumber - 1] = 0;
+		studentFirstName[recordNumber - 1] = "";
+		studentLastName[recordNumber - 1] = "";
+		midtermGrade[recordNumber - 1] = 0;
+		finalGrade[recordNumber - 1] = 0;
 
 }
 void displayStudentRecords()
 {
+	for(int i = 0; i < SIZE; i++)
+		cout << 
 
 }
 void showRecordByID()
