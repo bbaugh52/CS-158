@@ -2,11 +2,6 @@
 #include <string>
 using namespace std;
 
-// matts notes delete before submitting - use return function to output from a function call
-// if function returns a value define a data type (string/int etc) if it doesnt use void
-// when changing arrays, its not done sequentially, ask the user which one they want to do it to by either number or ID
-// record number is good name for request
-
 // functions
 void newStudentRecord();
 void deleteStudentRecord();
@@ -80,7 +75,7 @@ void newStudentRecord()
 {
 	int rNumber;
 	cout << "Please enter the following information to add a new student record: \n";
-	cout << "Enter the student ID: \n";
+	cout << "Enter the student ID (1-20): \n";
 	cin >> rNumber;
 	studentID[rNumber - 1] = rNumber;
 	cout << "Enter first name: \n";
@@ -89,14 +84,25 @@ void newStudentRecord()
 	cin >> studentLastName[rNumber - 1];
 	cout << "Enter the midterm grade: \n";
 	cin >> midtermGrade[rNumber - 1];
+	if (midtermGrade[rNumber -1] > 100 || midtermGrade[rNumber - 1] < 0)
+	{
+		cout << "Error: Please input a number within the valid range (0 - 100) \n";
+		cin >> midtermGrade[rNumber - 1];
+	}
 	cout << "Enter the final grade: \n";
 	cin >> finalGrade[rNumber - 1];
+	if (finalGrade[rNumber - 1] > 100 || finalGrade[rNumber - 1] < 0)
+	{
+		cout << "Error: Please input a number within the valid range (0 - 100) \n";
+		cin >> finalGrade[rNumber - 1];
+	}
+	cout << "Student information saved successfully \n";
 }
 
 void deleteStudentRecord()
 {
 	int rNumber;
-	cout << "Please enter a record number to delete." << endl;
+	cout << "Please enter a record number to delete.\n";
 	cin >> rNumber;
 
 	studentID[rNumber - 1] = 0;
@@ -111,7 +117,12 @@ void displayStudentRecords()
 	cout << "=========================================================================================================\n";
 	cout << "ID \t \t" << "First Name \t" << "Last Name \t" << "Midterm Grade \t" << "Final Grade \n";
 	for (int i = 0; i < SIZE; i++)
-		cout << studentID[i] << "\t \t" << studentFirstName[i] << "\t \t" << studentLastName[i] << "\t\t\t" << midtermGrade[i] << "\t\t" << finalGrade[i] << endl;
+	{
+		if (studentFirstName[i] != "")
+		{
+			cout << studentID[i] << "\t\t" << studentFirstName[i] << "\t \t" << studentLastName[i] << "\t\t" << midtermGrade[i] << "\t\t" << finalGrade[i] << endl;
+		}
+	}
 	cout << "=========================================================================================================\n";
 
 }
@@ -141,6 +152,4 @@ void editStudentRecord()
 	cout << "Student information modified successfully";
 
 }
-
-
 
